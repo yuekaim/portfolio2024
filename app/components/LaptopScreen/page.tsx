@@ -1,23 +1,21 @@
 // components/LaptopScreen/page.tsx
+'use client';
+
 import React from 'react';
-import type { Project } from '../../ts/interfaces';
+import { Project } from '../../ts/interfaces';
 import imageUrlBuilder from '@sanity/image-url';
 import { client } from '@/utils/sanity/client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 interface LaptopScreenProps {
-  post: Project | null;
-}
-
-interface ImageSource {
-  url: string;
+  post: Project | null; // Allow post to be null
 }
 
 const builder = imageUrlBuilder(client);
 
-function urlFor(source: ImageSource) {
-  return builder.image(source).url();
+function urlFor(source: any) {
+  return builder.image(source);
 }
 
 const LaptopScreen: React.FC<LaptopScreenProps> = ({ post }) => {
@@ -35,7 +33,7 @@ const LaptopScreen: React.FC<LaptopScreenProps> = ({ post }) => {
     <motion.div>
       {coverImage && (
         <Image
-          src={urlFor(coverImage.asset)}
+          src={urlFor(coverImage.asset).url()}
           alt={coverImage.altText || post.title}
           width={2004}
           height={1296}

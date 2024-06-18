@@ -1,29 +1,29 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "strict": true,
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "*"
-      ]
-    },
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
     "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "jsx": "preserve", // Ensure this is set correctly
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
     "plugins": [
       {
         "name": "next"

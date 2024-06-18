@@ -16,8 +16,10 @@ const Navbar = ({
     <>
       <div className="w-100 h-20 sticky top-0 z-30">
         <div className="container px-4 h-full">
-          <div className="flex justify-between items-center h-full">
-            <ul className="navbar hidden md:flex gap-x-6 text-black">
+          <div className="flex items-center h-full z-20">
+          <Button toggle={toggle} isOpen={isOpen} />
+            <ul className="navbar md:flex gap-x-6 text-black"
+            style={{opacity: `${isOpen? 1:0}`}}>
               <li>
                 <Link href="/" className={pathname === '/' ? 'active' : ''}>
                   <p>home</p>
@@ -34,7 +36,6 @@ const Navbar = ({
                 </Link>
               </li>
             </ul>
-            <Button toggle={toggle} isOpen={isOpen} />
           </div>
         </div>
       </div>

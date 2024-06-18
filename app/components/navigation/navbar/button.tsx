@@ -1,4 +1,5 @@
 import React from "react";
+import { div } from "three/examples/jsm/nodes/Nodes";
 
 const Button = (
   {
@@ -9,9 +10,10 @@ const Button = (
     isOpen: boolean;
   }
 ) => {
-  return <div style={{ opacity: `${isOpen ? 0 : 1}` }}onClick={toggle} className="sm:invisible">
-    button
+  return <div onClick={toggle} className="sm:visible text-6xl pl-8">
+    {isOpen ? '👀' : 'x'}
   </div>;
+  
 };
 
 export default Button;

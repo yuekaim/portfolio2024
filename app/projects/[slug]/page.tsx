@@ -27,7 +27,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   }
 
   return (
-    <div className="project-container">
+    <div className="project-container mt-20 border-t-2 border-l-2 border-black overflow-scroll">
       {/* <div>test</div> */}
       {/* <div className='fixed bottom-0 w-full z-10'>
         <h1 className="text-3xl font-bold border-t-2 border-black px-10 py-5 sm:w-[50vw] fixed bottom-0 w-full z-10">{project.title}</h1>
@@ -40,6 +40,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
           ))}
         </ul>
       </div> */}
+      <MatterCanvas />
       <p className="p-10 sm:w-[40vw]">{project.description}</p>
       <ProjectImages images={project.images} title={project.title}/>
       {/* {project.url && (
@@ -48,7 +49,6 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         </a>
       )} */}
 
-    <MatterCanvas />
     </div>
   );
 }

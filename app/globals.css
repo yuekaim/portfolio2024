@@ -183,15 +183,15 @@ a::selection{
 .imagesWrapper img{
     width: calc(100% - 4rem);
 }
-
+/* 
 .imagesWrapper:hover img{
-    /* filter:blur(5px) contrast(10) saturate(0) brightness(10); */
+    filter:blur(5px) contrast(10) saturate(0) brightness(10);
     transition-duration: 0.5s;
 }
 
 .imagesWrapper img:hover{
     filter: blur(0px);
-}
+} */
 
 #sparkler {
     position: fixed;
@@ -216,6 +216,10 @@ a::selection{
 
 .project-container h1{
     background-color: var(--light-grey);
+}
+
+.project-container{
+    height: calc(100vh - 5rem);
 }
 
 

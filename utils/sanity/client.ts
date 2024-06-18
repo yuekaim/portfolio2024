@@ -1,6 +1,8 @@
 // ./src/utils/sanity/client.ts
 import { createClient } from "next-sanity"
 
+console.log("Environment Variables:", process.env);
+
 export const client = createClient({
     projectId: process.env.SANITY_PROJECT_ID,
     dataset: 'production',

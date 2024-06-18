@@ -116,13 +116,14 @@ a::selection{
     transition-duration: 0.5s;
 }
 
-.active {
+.navbar .active{
     /* filter: blur(2px); Adjust blur amount as needed */
     transition-duration: 0.5s;
     /* background-color: black; */
-    letter-spacing: 5px;
-    box-shadow: inset 3px 3px 6px #cacaca,
-            inset -3px -3px 6px #ffffff;
+    /* letter-spacing: 5px; */
+    box-shadow:  
+        inset 3px 3px 6px #cacaca,
+        inset -3px -3px 6px #ffffff;
 }
 
 .navbar{
@@ -140,10 +141,30 @@ a::selection{
 }
 
 .navbar li:hover{
-    letter-spacing: 5px;
+    /* letter-spacing: 5px; */
     box-shadow: inset 3px 3px 6px #cacaca,
             inset -3px -3px 6px #ffffff;
 }
+
+.categories-wrapper .selected{
+    background-color: var(--light-grey);
+    box-shadow:  inset 3px 3px 6px #cacaca,
+            inset -3px -3px 6px #ffffff;
+}
+
+.categories-wrapper li{
+    background-color: var(--light-grey);
+    box-shadow:  3px 3px 6px #cacaca,
+         -3px -3px 6px #ffffff;
+}
+
+.categories-wrapper{
+    overflow: visible;
+}
+
+/* .mattercanvas{
+    mix-blend-mode:difference;
+} */
 
 .circle{
     margin-top: 0.5rem;

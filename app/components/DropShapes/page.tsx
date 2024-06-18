@@ -96,7 +96,7 @@ const MatterCanvas: React.FC = () => {
     };
   }, []);
 
-  return <div className="fixed top-0 left-0 z-[20]" ref={sceneRef} style={{ pointerEvents: 'none', width: '100%', height: '100vh' }} />;
+  return <div className="invisible sm:visible mattercanvas fixed top-0 left-0 z-[20]" ref={sceneRef} style={{ pointerEvents: 'none', width: '100%', height: '100vh' }} />;
 };
 
 export default MatterCanvas;

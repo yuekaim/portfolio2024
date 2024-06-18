@@ -20,18 +20,18 @@ const Navbar = ({
           <Button toggle={toggle} isOpen={isOpen} />
             <ul className="navbar md:flex gap-x-6 text-black"
             style={{opacity: `${isOpen? 1:0}`}}>
-              <li>
-                <Link href="/" className={pathname === '/' ? 'active' : ''}>
+              <li className={pathname === '/' ? 'active' : ''}>
+                <Link href="/">
                   <p>home</p>
                 </Link>
               </li>
-              <li>
-                <Link href="/about" className={pathname === '/about' ? 'active' : ''}>
+              <li className={pathname === '/about' ? 'active' : ''}>
+                <Link href="/about">
                   <p>about</p>
                 </Link>
               </li>
-              <li>
-                <Link href="/projects" className={pathname === '/projects' ? 'active' : ''}>
+              <li className={pathname === '/projects' ? 'active' : ''}>
+                <Link href="/projects">
                   <p>project</p>
                 </Link>
               </li>

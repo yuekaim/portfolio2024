@@ -14,9 +14,9 @@ const Navigation: React.FC = () => {
   };
   return (
     <>
-      <Suspense fallback={null}>
+      {/* <Suspense fallback={null}>
         <Categories isOpen={isOpen} toggle={toggle}/>
-      </Suspense>
+      </Suspense> */}
       <Navbar isOpen={isOpen} toggle={toggle} />
     </>
   );

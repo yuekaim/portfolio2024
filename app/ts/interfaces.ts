@@ -38,3 +38,7 @@ export interface Project {
         altText?: string;
     }[];
 }
+
+export interface LaptopScreenProps {
+    post: Project | null;
+}

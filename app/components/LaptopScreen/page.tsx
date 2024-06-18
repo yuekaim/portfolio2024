@@ -1,9 +1,7 @@
-'use client'
-
 // components/LaptopScreen/page.tsx
 import React from 'react';
-import { Project } from '../../ts/interfaces';
-import imageUrlBuilder from '@sanity/image-url'
+import type { Project } from '../../ts/interfaces';
+import imageUrlBuilder from '@sanity/image-url';
 import { client } from '@/utils/sanity/client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -47,9 +45,5 @@ const LaptopScreen: React.FC<LaptopScreenProps> = ({ post }) => {
     </motion.div>
   );
 };
-
-// const LaptopScreen: React.FC = () => {
-//   return (<>test</>)
-// }
 
 export default LaptopScreen;

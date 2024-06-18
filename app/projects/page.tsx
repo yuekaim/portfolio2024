@@ -7,6 +7,7 @@ import { client } from "@/utils/sanity/client";
 import { motion, AnimatePresence } from "framer-motion";
 import Laptop from "../components/laptop";
 import Link from "next/link";
+import { rotate } from "three/examples/jsm/nodes/Nodes";
 
 const Projects: React.FC = () => {
   const [posts, setPosts] = useState<Project[]>([]);
@@ -63,12 +64,11 @@ const Projects: React.FC = () => {
         {posts.map((post) => (
           <motion.li className="project"
           key={post._id}
-          onClick={() => handleExpand(post._id)}
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            <div className="project-info flex pb-[2rem]">
+            <div className="project-info flex pb-[2rem]" onClick={() => handleExpand(post._id)}>
               <h2 className="text-[2rem]">{post.title}</h2>
               <ul className="flex grow ml-3">
               {post.categories?.map((categoryId) => (
@@ -87,6 +87,10 @@ const Projects: React.FC = () => {
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  style={{transform: `rotate(${(expandedPostId === post._id)?45:0}deg)`, 
+                  transformOrigin: 'center',
+                  transitionDuration: '0.5',
+                }}
                 />
               </svg>
               </div>
@@ -116,6 +120,15 @@ const Projects: React.FC = () => {
                 >
                   <Laptop postId={expandedPostId}/>
                 </motion.div>
+                <motion.div 
+                    className="fixed laptop-canvas w-full sm:w-[60vw] sm:h-full sm:top-0 h-[50vh] mx-0 px-0 right-0 over invisible sm:visible"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                >
+                  <Laptop postId={expandedPostId} />
+                </motion.div>
               </Suspense>
               </motion.div>
             )}
@@ -124,15 +137,15 @@ const Projects: React.FC = () => {
         ))}
       </ul>
       <Suspense fallback={null}>
-        <motion.div 
+        {/* <motion.div 
             className="fixed laptop-canvas w-full sm:w-[60vw] sm:h-full sm:top-0 h-[50vh] mx-0 px-0 right-0 over invisible sm:visible"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <Laptop postId={expandedPostId} />
-        </motion.div>
+          <Laptop postId='{expandedPostId}' />
+        </motion.div> */}
       </Suspense>
     </div>
   );

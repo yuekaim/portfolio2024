@@ -67,8 +67,8 @@ function Model({ postId }: LaptopProps) {
                 <Html className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} transform occlude>
                     <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
                     {/* <HeroPage /> */}
-                    {/* <LaptopScreen post={post} /> */}
-                    <LaptopScreen />
+                    <LaptopScreen post={post?post:null} />
+                    {/* <LaptopScreen /> */}
                     </div>
                 </Html>
                 </mesh>

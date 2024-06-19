@@ -8,16 +8,12 @@ import { Suspense } from "react";
 
 
 const Navigation: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
   return (
     <>
       {/* <Suspense fallback={null}>
         <Categories isOpen={isOpen} toggle={toggle}/>
       </Suspense> */}
-      <Navbar isOpen={isOpen} toggle={toggle} />
+      <Navbar/>
     </>
   );
 };

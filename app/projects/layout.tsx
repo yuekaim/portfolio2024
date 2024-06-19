@@ -71,7 +71,7 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <>
     <Categories />
-    <div className="project-list container md:w-1/3 md:border-t-2 border-black sm:px-0 z-40">
+    <div className="project-list container md:w-1/3 md:border-t-2 border-black sm:px-0 z-[40]">
       <ul>
       {posts.map((post) => {
             const isVisible = selectedCategories?.length > 0 && post.categories?.some(category => selectedCategories.includes(category._ref));

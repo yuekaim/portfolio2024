@@ -86,13 +86,20 @@ a::selection{
     /* padding-bottom: 10px; */
     /* padding-top: 2rem; */
     border-bottom: 2px solid black;
-    background-color: var(--light-grey);
+    /* background-color: var(--light-grey); */
     /* backdrop-filter: blur(10px); */
     margin:0;
     padding-left: 30px;
     padding-right: 30px;
     /* border-radius: 30px; */
     cursor: pointer;
+}
+
+.project-list{
+    position: fixed;
+    top: 5rem;
+    height: calc(100vh - 5rem);
+    overflow: scroll;
 }
 
 .about p{

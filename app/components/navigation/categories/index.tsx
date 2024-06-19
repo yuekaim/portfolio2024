@@ -7,14 +7,12 @@ import { useState, useEffect, useContext } from 'react';
 import { client } from '@/utils/sanity/client';
 import { useCategories } from '@/app/components/CategoriesContext';
 
-// interface CategoriesProps {
-//     isOpen: boolean;
-//     toggle: () => void;
-// }
-
-// export const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-
 const Categories: React.FC = ({}) => {
+    const [isOpen, setIsOpen] = useState(true);
+    const toggle = () => {
+      setIsOpen(!isOpen);
+    };
+
     const [categories, setCategories] = useState<CategoryProp[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -56,9 +54,10 @@ const Categories: React.FC = ({}) => {
       }
 
     return (
-    <div>
+    <div className='categories-wrapper sm:fixed overflow-visible justify-right right-4 top-4 z-50 flex flex-row flex-wrap sm:w-20 w-100 justify-center'>
+        <button onClick={toggle}>click</button>
         <p>{notice}</p>
-        <ul className="categories-wrapper sm:fixed overflow-hidden justify-right right-4 top-4 z-50 flex flex-row flex-wrap sm:w-20 w-100">
+        <ul className={`${isOpen? '' : 'invisible'} duration-150 overflow-visible`}>
         {categories.map((category) => (
           <li
           key={category._id}

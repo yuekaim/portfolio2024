@@ -76,7 +76,7 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({ images, title }) => {
               layout="fill"
               objectFit="contain"
               loading="eager"
-              className='drop-shadow-2xl'
+              className='drop-shadow-md'
             />
           </div>
         </motion.div>

@@ -54,7 +54,7 @@ const Categories: React.FC = ({}) => {
       }
 
     return (
-    <div className='categories-wrapper sm:fixed overflow-visible justify-right right-4 top-4 z-50 flex flex-row flex-wrap sm:w-20 w-100 justify-center'>
+    <div className='categories-wrapper sm:fixed overflow-visible justify-right right-4 top-4 flex flex-row flex-wrap sm:w-20 w-100 justify-center z-[60]'>
         <button onClick={toggle}>click</button>
         <p>{notice}</p>
         <ul className={`${isOpen? '' : 'invisible'} duration-150 overflow-visible`}>

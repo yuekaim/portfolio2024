@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -44,11 +44,14 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({ images, title }) => {
             exit={{ y: 1000 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}>
                 {images && images.length > 0 && (
-                images.map((image, index) => (
-                  <div key={'div'+index} onClick={() => openLightbox(image.asset.url)} className="image-container">
+                images.map((image, index) => {
+                  // console.log('Image Asset:', image.asset);
+                  // console.log('urlFor(image.asset).url(): ', urlFor(image.asset).url());
+                  return(
+                  <div key={'div'+index} onClick={() => openLightbox(urlFor(image.asset).url())} className="image-container">
                     <Image
                     key={index}
-                    src={image.asset.url}
+                    src={urlFor(image.asset).url()}
                     alt={image.altText || title}
                     width={800} // Provide a default width
                     height={450} // Provide a default height
@@ -56,13 +59,14 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({ images, title }) => {
                     className=" rounded-3xl m-8"
                     />
                   </div>
-                ))
-                )}
+                )
+              })
+            )}
             </motion.div>
         </div>   
         {lightboxOpen && (
         <motion.div
-          className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-80"
+          className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-80 bg-[#ffffffaa] z-100"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

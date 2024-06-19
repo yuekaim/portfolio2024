@@ -50,11 +50,6 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
     setExpandedPostId(expandedPostId === postId ? null : postId);
   };
 
-  const getCategoryTitle = (categoryId: string) => {
-    const category = categories.find((cat) => cat._id === categoryId);
-    return category ? category.title : '';
-  };
-
   const getCategoryColor = (categoryId: string) => {
     const category = categories.find((cat) => cat._id === categoryId);
     return category ? category.color.hex : '';
@@ -71,12 +66,10 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <>
     <Categories />
-    <div className="project-list container md:w-1/3 md:border-t-2 border-black sm:px-0 z-[40]">
+    <div className="project-list container md:w-1/3 md:border-t-2 border-black sm:px-0 z-10">
       <ul>
       {posts.map((post) => {
             const isVisible = selectedCategories?.length > 0 && post.categories?.some(category => selectedCategories.includes(category._ref));
-            console.log("Post categories:", post.categories);
-            console.log(selectedCategories);
             return (
               <motion.li className={`project p-0 m-0`}
                 key={post._id}
@@ -136,15 +129,15 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
                       >
                         <Laptop postId={expandedPostId} />
                       </motion.div>
-                      <motion.div 
-                        className="fixed laptop-canvas w-full sm:w-[60vw] sm:h-full sm:top-0 h-[50vh] mx-0 px-0 right-0 over invisible sm:visible z-50"
+                      {/* <motion.div 
+                        className="fixed laptop-canvas w-full sm:w-[60vw] sm:h-full sm:top-0 h-[50vh] mx-0 px-0 right-0 over invisible sm:visible z-[50]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
                       >
                         <Laptop postId={expandedPostId} />
-                      </motion.div>
+                      </motion.div> */}
                     </Suspense>
                   </motion.div>
                 )}
@@ -153,19 +146,23 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
             );
           })}
       </ul>
+    </div>
+    <AnimatePresence>
+    {expandedPostId && (
       <Suspense fallback={null}>
-        {/* <motion.div 
-            className="fixed laptop-canvas w-full sm:w-[60vw] sm:h-full sm:top-0 h-[50vh] mx-0 px-0 right-0 over invisible sm:visible"
+        <motion.div 
+            className="fixed laptop-canvas w-full sm:w-[60vw] sm:h-full sm:top-0 h-[50vh] mx-0 px-0 right-0 invisible sm:visible z-[60]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <Laptop postId='{expandedPostId}' />
-        </motion.div> */}
+              <Laptop postId={expandedPostId} />
+        </motion.div>
       </Suspense>
-    </div>
-    <div className="children-wrapper sm:w-2/3 h-[100vh] fixed top-0 right-0 overflow-scroll">
+    )}
+    </AnimatePresence>
+    <div className="children-wrapper sm:w-2/3 h-[100vh] fixed top-0 right-0 overflow-scroll z-50">
       {children}
     </div>
   </>

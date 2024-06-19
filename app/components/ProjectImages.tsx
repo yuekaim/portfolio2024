@@ -45,10 +45,10 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({ images, title }) => {
             transition={{ duration: 0.5, ease: 'easeOut' }}>
                 {images && images.length > 0 && (
                 images.map((image, index) => (
-                  <div onClick={() => openLightbox(urlFor(image.asset).url())} className="image-container">
+                  <div key={'div'+index} onClick={() => openLightbox(image.asset.url)} className="image-container">
                     <Image
                     key={index}
-                    src={urlFor(image.asset).url()}
+                    src={image.asset.url}
                     alt={image.altText || title}
                     width={800} // Provide a default width
                     height={450} // Provide a default height

@@ -58,6 +58,7 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({ images, title }) => {
                     loading="lazy"
                     className=" rounded-3xl m-8"
                     />
+                    <p className='pl-10'>{image.caption}</p>
                   </div>
                 )
               })

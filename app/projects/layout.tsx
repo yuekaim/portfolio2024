@@ -66,7 +66,7 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <>
     <Categories />
-    <div className="project-list container md:w-1/3 md:border-t-2 border-black sm:px-0 z-10">
+    <div className="project-list container md:w-1/3 border-t-2 border-black sm:px-0 z-10">
       <ul>
       {posts.map((post) => {
             const isVisible = selectedCategories?.length > 0 && post.categories?.some(category => selectedCategories.includes(category._ref));
@@ -121,7 +121,7 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
                     </div>
                     <Suspense fallback={null}>
                       <motion.div 
-                        className="laptop-canvas w-full sm:top-0 h-[30vh] sm:h-0 mx-0 px-0 right-0 over sm:invisible"
+                        className="laptop-canvas w-full sm:top-0 h-[30svh] sm:h-0 mx-0 px-0 right-0 over sm:invisible"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -162,9 +162,15 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
       </Suspense>
     )}
     </AnimatePresence>
-    <div className="children-wrapper sm:w-2/3 h-[100vh] fixed top-0 right-0 overflow-scroll z-50">
+    <AnimatePresence>
+    <motion.div className="children-wrapper sm:w-2/3 h-[100vh] fixed top-0 right-0 overflow-scroll sm:z-50 z-[80]"
+    initial={{ height: 0 }}
+    animate={{ height: 'auto' }}
+    exit={{ height: 0 }}
+    transition={{ duration: 0.5, ease: 'easeOut' }}>
       {children}
-    </div>
+    </motion.div>
+    </AnimatePresence> 
   </>
   );
 };

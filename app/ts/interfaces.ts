@@ -17,11 +17,13 @@ export interface About {
       _type: 'block';
       children: [{ text: string }];
     }[];
+    highlights: Project[];
 }
 
 
 export interface Project {
     _id: string;
+    _ref: string;
     title: string;
     categories: CategoryProp[];
     description: string;
@@ -36,6 +38,7 @@ export interface Project {
             url: string;
         };
         altText?: string;
+        caption: string;
     }[];
     content: {
         _key: string;

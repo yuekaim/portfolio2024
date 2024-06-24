@@ -7,11 +7,11 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="w-100 h-20 sticky top-0 z-30">
+      <div className="w-full h-20 sticky top-0 z-30">
         <div className="container px-4 h-full">
           <div className="flex items-center h-full z-20">
           
-            <ul className="navbar md:flex gap-x-6 text-black">
+            <ul className="navbar flex gap-x-6 text-black">
               <li className={pathname === '/' ? 'active' : ''}>
                 <Link href="/">
                   <p>home</p>
@@ -24,7 +24,7 @@ const Navbar = () => {
               </li>
               <li className={pathname === '/projects' ? 'active' : ''}>
                 <Link href="/projects">
-                  <p>project</p>
+                  <p>projects</p>
                 </Link>
               </li>
             </ul>

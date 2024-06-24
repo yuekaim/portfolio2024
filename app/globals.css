@@ -305,7 +305,6 @@ a::selection{
 
 .highlight:hover .highlight-info{
     opacity: 1;
-    padding: 1rem;
 }
 
 @media (max-width: 640px) {
@@ -323,6 +322,7 @@ a::selection{
 
     .project-list{
         position: absolute;
+        height: auto;
     }
 
     .imagesWrapper:hover img{

@@ -65,7 +65,9 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
 
   return (
     <>
-    <Categories />
+    <div className="fixed overflow-hidden top-0 right-0 z-50">
+      <Categories />
+    </div>
     <div className="project-list container md:w-1/3 border-t-2 border-black sm:px-0 z-10">
       <ul>
       {posts.map((post) => {

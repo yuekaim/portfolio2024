@@ -56,14 +56,19 @@ const Categories: React.FC = ({}) => {
 
     return (
     <AnimatePresence>
-    <div className='categories-wrapper absolute sm:fixed overflow-hidden justify-right right-4 top-4 flex flex-row-reverse flex-wrap sm:w-20 w-100 justify-center z-[60]'>
-        <div onClick={toggle}
-          style={{
-            transitionDuration: '0.3s',
-            transform: `${isOpen ? 'scaleX(-1)' : 'scaleX(1)'}`, 
-            // transformOrigin: ''
-          }}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style={{transform:"scale(2)"}} className='mt-6 h-10 top-10'>
+    {/* <div className='categories-wrapper absolute sm:fixed overflow-hidden justify-right right-4 top-4 flex flex-row-reverse flex-wrap sm:w-100 w-100 justify-center z-[60]'> */}
+    <div className='categories-wrapper absolute sm:fixed overflow-hidden right-4 bottom-4 flex align-bottom flex-col-reverse flex-wrap sm:w-100 w-100 justify-center z-[60]'>
+        <div onClick={toggle} className='button w-20 h-20 rounded-full border-black border-2'
+        style={{
+          transitionDuration: '0.5s',
+          transform: `${isOpen ? 'rotate(0deg)' : 'rotate(180deg)'}`, 
+          transformOrigin: 'center'
+        }}
+          >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" className='mt-6 h-10 top-10'
+        style={{
+          transform: `scale(2)`, 
+        }}>
           <path d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"/>
         </svg>
         </div>
@@ -72,12 +77,13 @@ const Categories: React.FC = ({}) => {
         initial= {{ x: 200 }}
         animate = {{ x : isOpen? 0 : 200}}
         transition={{ duration: 0.3 }}
-        style={{ overflow: 'hidden' }}>
+        style={{ overflow: 'hidden' }}
+        className='w-full'>
           <ul>
             {categories.map((category) => (
               <li
               key={category._id}
-              className={`px-2 my-2 mx-2 sm:mx-0 rounded-xl flex cursor-pointer ${selectedCategories.includes(category._id) ? 'selected' : ''}`}
+              className={`px-2 my-2 mx-2 sm:mx-0 sm:px-4 w-full rounded-xl flex cursor-pointer ${selectedCategories.includes(category._id) ? 'selected' : ''}`}
               onClick={() => toggleCategory(category._id)}
               >
                 <div className='circle mr-2' style={{backgroundColor: category.color.hex}}></div>

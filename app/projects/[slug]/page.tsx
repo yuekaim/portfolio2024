@@ -28,21 +28,10 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   }
 
   return (
-    <div className="project-container pb-5 sm:pb-20 sm:mt-20 sm:border-t-2 sm:border-l-2 border-black overflow-scroll h-full">
+    <div className="project-container pb-20 sm:pb-5 sm:mt-20 sm:border-t-2 border-black overflow-scroll h-full">
       <a href="./"><div className='project-back visible sm:invisible w-full border-t-2 border-black px-10 py-4 fixed bottom-0 text-center'>back</div></a>
-      {/* <div>test</div> */}
-      {/* <div className='fixed bottom-0 w-full z-10'>
-        <h1 className="text-3xl font-bold border-t-2 border-black px-10 py-5 sm:w-[50vw] fixed bottom-0 w-full z-10">{project.title}</h1>
-        <ul className="flex grow ml-3">
-          {project.categories?.map((categoryId) => (
-            <li key={categoryId._id} style={{ color: categoryId.color.hex }}>
-              <div className="circle" style={{ backgroundColor: categoryId.color.hex }}></div>
-              {getCategoryTitle(categoryId._ref)}
-            </li>
-          ))}
-        </ul>
-      </div> */}
       <MatterCanvas />
+      <h1 className='p-10 text-xl'>{project.title}</h1>
       <p className="p-10 sm:w-[40vw]">{project.description}</p>
       
       {project.url && (

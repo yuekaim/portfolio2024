@@ -30,8 +30,8 @@ const Projects: React.FC<RootLayoutProps> = ({ children }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postQuery = `*[_type == "project"]`;
-        const categoryQuery = `*[_type == "category"]`;
+        const postQuery = `*[_type == "project"] | order(orderRank)`;
+        const categoryQuery = `*[_type == "category"] | order(orderRank)`;
         const fetchedPosts = await client.fetch<Project[]>(postQuery);
         const fetchedCategories = await client.fetch<CategoryProp[]>(categoryQuery);
         setPosts(fetchedPosts);

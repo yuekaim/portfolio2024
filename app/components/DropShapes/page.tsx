@@ -58,12 +58,12 @@ const MatterCanvas: React.FC = () => {
 
       // Add event listener to ensure the image is loaded
       img.onload = () => {
-        const body = Bodies.circle(event.clientX, event.clientY, 80, {
+        const body = Bodies.circle(event.clientX, event.clientY, 40, {
           render: {
             sprite: {
               texture: svgUrl,
-              xScale: 80 / 344, // Adjust the scale as needed
-              yScale: 80 / 344  // Adjust the scale as needed
+              xScale: 40 / 344, // Adjust the scale as needed
+              yScale: 40 / 344  // Adjust the scale as needed
             }
           }
         });

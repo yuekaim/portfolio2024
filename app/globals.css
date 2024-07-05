@@ -309,6 +309,58 @@ a::selection{
     overflow: hidden;
 }
 
+@keyframes lookingAround {
+    0% {
+    transform:rotate(0deg); 
+    }
+  
+    30% {
+    transform:rotate(80deg); 
+    }
+
+    60% {
+    transform:rotate(-20deg); 
+    }
+
+    100%{
+    transform:rotate(0deg); 
+    }
+}
+
+@keyframes lookingAroundReverse {
+    0% {
+    transform:rotate(0deg); 
+    }
+  
+    30% {
+    transform:rotate(-20deg); 
+    }
+
+    60% {
+    transform:rotate(80deg); 
+    }
+
+    100%{
+    transform:rotate(0deg); 
+    }
+}
+
+.looking{
+    transition-duration: 0.5s;
+    margin: 0 1rem;
+}
+
+.highlightWrapper:hover .looking:first-of-type{
+    opacity: 1;
+    animation: 3s infinite alternate lookingAround;
+}
+
+.highlightWrapper:hover .looking:last-of-type{
+    opacity: 1;
+    animation: 3s infinite alternate lookingAroundReverse;
+}
+
+
 .highlight-info{
     opacity: 0;
     transition-duration: 0.5s;

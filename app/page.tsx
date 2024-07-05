@@ -72,7 +72,8 @@ export default function Home() {
             about.highlights.map((hl) => {
             const highlight = getHighlight(hl._ref);
             return (
-              <a href={`projects/${highlight?.slug?.current}`} key={highlight?._ref}>
+              <a href={`projects/${highlight?.slug?.current}`} key={highlight?._ref} className="highlightWrapper flex flex-row items-center">
+                <div className="opacity-0 looking"><img src="/eyeball.svg" alt="" className="w-20 h-20" /></div>
                 <div className="highlight">
                   <Image 
                   src={urlFor(highlight?.images[0].asset._ref).url()}
@@ -88,6 +89,7 @@ export default function Home() {
                       })}
                     </div>  
                   </div>
+                  <div className="opacity-0 looking"><img src="/eyeball.svg" alt="" className="w-20 h-20" /></div>
               </a>
             )})
           )}

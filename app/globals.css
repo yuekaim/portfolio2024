@@ -284,11 +284,11 @@ a::selection{
 }
 
 .project-container blockquote{
-    padding: 2rem;
-    /* border-left: 0.1rem dashed black; */
-    box-shadow: inset 10px 10px 20px #cacaca,
+    padding-left: 1rem;
+    border-left: 0.1rem solid black;
+    /* box-shadow: inset 10px 10px 20px #cacaca,
             inset -10px -10px 20px #ffffff;
-    border-radius: 3rem;
+    border-radius: 3rem; */
 }
 
 .project-container{
@@ -328,6 +328,10 @@ a::selection{
 
 .highlight:hover .highlight-info{
     opacity: 1;
+}
+
+.project-container .container p{
+    margin: 0 0 2rem 0;
 }
 
 @media (max-width: 640px) {

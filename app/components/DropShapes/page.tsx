@@ -41,9 +41,9 @@ const MatterCanvas: React.FC = () => {
 
       const vectors = [
         { x: 1, y: 1 },
-        { x: 1.5, y: 0 },
+        { x: -1.5, y: -1 },
         { x: 1.2, y: 0 },
-        { x: 2, y: -1 },
+        { x: -2, y: -1 },
         { x: 0.8, y: 1 },
       ];
 
@@ -59,6 +59,7 @@ const MatterCanvas: React.FC = () => {
       // Add event listener to ensure the image is loaded
       img.onload = () => {
         const body = Bodies.circle(event.clientX, event.clientY, 40, {
+          restitution: 0.9,
           render: {
             sprite: {
               texture: svgUrl,
@@ -70,7 +71,7 @@ const MatterCanvas: React.FC = () => {
 
         const rotation = Math.floor(Math.random() * 180);
         Body.rotate(body, rotation);
-        Body.applyForce(body, { x: body.position.x, y: body.position.y }, { x: randomVector.x * 0.01, y: -0.01 });
+        Body.applyForce(body, { x: body.position.x, y: body.position.y }, { x: randomVector.x * 0.02, y: randomVector.y * 0.03 });
         if (engineRef.current) {
           Composite.add(engineRef.current.world, [body]);
         }

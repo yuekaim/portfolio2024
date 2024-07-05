@@ -1,5 +1,5 @@
 import { client } from '@/utils/sanity/client';
-import { Project } from '@/app/ts/interfaces';
+import { Project, CategoryProp } from '@/app/ts/interfaces';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import ProjectImages from '@/app/components/ProjectImages';
@@ -20,8 +20,14 @@ async function fetchProject(slug: string): Promise<Project | null> {
   return client.fetch<Project | null>(query, { slug });
 }
 
+async function fetchCategories(): Promise<CategoryProp[] | null> {
+  const categoryQuery = `*[_type == "category"] `;
+  return client.fetch<CategoryProp[] | null>(categoryQuery);
+}
+
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const project = await fetchProject(params.slug);
+  const categories = await fetchCategories();
 
   if (!project) {
     notFound();
@@ -32,6 +38,19 @@ export default async function ProjectPage({ params }: { params: { slug: string }
       <a href="./"><div className='project-back visible sm:invisible w-full border-t-2 border-black px-10 py-4 fixed bottom-0 text-center'>back</div></a>
       <MatterCanvas />
       <h1 className='p-10 text-xl'>{project.title}</h1>
+      <div className="px-10 sm:w-[40vw] flex flex-row">
+      {project.categories.map((cat) => {
+        const category = categories?.find((category) => category._id === cat._ref);
+        return (
+          <>
+          <span className='mr-1 px-1 rounded-full border-2'
+          style={{borderColor: category?.color.hex}}>
+            {category?.title}
+          </span>
+          </>
+        )}
+      )}
+      </div>
       <p className="p-10 sm:w-[40vw]">{project.description}</p>
       
       {project.url && (

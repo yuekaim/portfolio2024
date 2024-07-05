@@ -65,7 +65,7 @@ const Categories: React.FC = ({}) => {
           transformOrigin: 'center'
         }}
           >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" className='mt-6 h-10 top-10'
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" className=''
         style={{
           transform: `scale(2)`, 
         }}>
